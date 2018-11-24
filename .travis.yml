@@ -1,0 +1,18 @@
+language: go
+
+go:
+  - 1.9
+
+os:
+  - linux
+
+install:
+  - go get -d -t ./...
+  - go test -i ./...
+
+script:
+  - cd $TRAVIS_BUILD_DIR
+  - go test -race -v ./...
+
+# after_success:
+#   - bash <(curl -s https://codecov.io/bash)
